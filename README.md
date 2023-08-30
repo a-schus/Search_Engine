@@ -21,7 +21,7 @@
 ## Графический интерфейс
 В дополнение к основным возможностям поискового движка добавлен графический интерфейс, позволяющий удобно изменять список файлов, пользовательские запросы и в реальном времени просматривать результаты поиска.
 
-![Alt text](https://raw.githubusercontent.com/a-schus/Search_Engine/master/images/UI.png?token=GHSAT0AAAAAACG5UYWCFS7GCTNXZHZ6SYM6ZHPBJ4A)
+![Alt text](https://github.com/a-schus/Search_Engine/blob/master/images/UI.png)
 
 Графический интерфейс создан на базе фреймворка QT.
 
