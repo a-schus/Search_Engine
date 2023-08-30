@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 11.0.0, 2023-08-30T13:13:53. -->
+<!-- Written by QtCreator 11.0.0, 2023-08-30T16:39:39. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -69,6 +69,7 @@
     <value type="bool" key="AutoTest.Framework.QtTest">true</value>
    </valuemap>
    <valuemap type="QVariantMap" key="AutoTest.CheckStates">
+    <value type="Qt::CheckState" key="1@S:/SkillBox_Projects/Final_Project/GitHub/test/search_engine_tests.cpp:initTestCase">Unchecked</value>
     <value type="Qt::CheckState" key="1@S:/SkillBox_Projects/Final_Project/Search_Engine/test/search_engine_tests.cpp:initTestCase">Unchecked</value>
    </valuemap>
    <value type="int" key="AutoTest.RunAfterBuild">0</value>
@@ -460,7 +461,7 @@
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory">S:/SkillBox_Projects/Final_Project/Search_Engine</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory">S:/SkillBox_Projects/Final_Project/GitHub</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">S:/SkillBox_Projects/Final_Project/build-Search_Engine-Desktop_Qt_5_15_2_MinGW_64_bit-Debug</value>
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
