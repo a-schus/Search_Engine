@@ -63,13 +63,13 @@
 
 Затем для сборки основного приложения ввести команду:
 
-cmake -DIS_TESTS=false -G "MinGW Makefiles" "you_dir"
+cmake -DIS_TESTS=false -G "MinGW Makefiles" "your_dir"
 
 а для сборки модульных тестов: 
 
-cmake -DIS_TESTS=true -G "MinGW Makefiles" "you_dir"
+cmake -DIS_TESTS=true -G "MinGW Makefiles" "your_dir"
 
-где "you_dir" - путь к папке с исходным кодом проекта.
+где "your_dir" - путь к папке с исходным кодом проекта.
 
 Затем, для генерации исполняемого файла введите:
 
