@@ -1,0 +1,16 @@
+{
+	"config": {
+		"name": "SkillboxSearchEngine",
+		"version": "0.1",
+		"max_responses": 5
+	},
+	"files": [
+		"test/test_content/rus/10.txt",
+		"test/test_content/rus/Aast_Llun_-_arhitektor_neba.txt",
+		"test/test_content/rus/Adskij_mir.txt",
+		"test/test_content/rus/Adskij_ogonb.txt",
+		"test/test_content/rus/Agent_Tartara.txt",
+		"test/test_content/rus/Agent_Zvezdnogo_korpusa.txt",
+		"test/test_content/rus/Jako_pomnishi_ego.txt"
+	]
+}
