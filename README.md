@@ -19,4 +19,4 @@
 результаты поиска.
 
 ## Графический интерфейс
-![Alt text](https://disk.yandex.ru/client/albums/64ef09a6f04478216d3a211a?dialog=slider&idDialog=%2Fdisk%2FUI.png)
+![Alt text](https://raw.githubusercontent.com/a-schus/Search_Engine/master/images/UI.png?token=GHSAT0AAAAAACG5UYWCFS7GCTNXZHZ6SYM6ZHPBJ4A)
