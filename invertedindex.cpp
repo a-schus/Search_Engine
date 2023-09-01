@@ -78,7 +78,7 @@ void InvertedIndex::indexingDocumentSingleThread(const size_t docId)
 
 QMap<QString, Entry>* InvertedIndex::indexingDocument(const QString& doc, const size_t docId)
 {
-    QMap<QString, Entry>* docFreqDictionary = new QMap<QString, Entry>;
+    QMap<QString, Entry>* docFreqDictionary = new QMap<QString, Entry>; // выделенная память освободится в InvertedIndex::UpdateDocumentBase()
     QStringList words = doc.split(splitter, Qt::SkipEmptyParts);
     for (auto nextWord : words) {
         nextWord = nextWord.toLower();
