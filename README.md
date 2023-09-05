@@ -66,6 +66,7 @@
 **cmake -DIS_TESTS=true -G "MinGW Makefiles" "your_dir"**
 
 (Если вам необходимо собрать только основное приложение, воспользуйтесь командой
+ 
  **cmake -DIS_TESTS=false -G "MinGW Makefiles" "your_dir"**)
 
 где "your_dir" - путь к папке с исходным кодом проекта.
