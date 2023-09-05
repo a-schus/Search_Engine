@@ -4,9 +4,9 @@
 #include <QObject>
 #include <QtTest/QTest>
 
-#include "../converterjson.h"
-#include "../invertedindex.h"
-#include "../searchserver.h"
+#include "../include/converterjson.h"
+#include "../include/invertedindex.h"
+#include "../include/searchserver.h"
 
 class Search_Engine_Tests : public QObject
 {

@@ -4,73 +4,15 @@ project(Search_Engine VERSION 1.0 LANGUAGES CXX)
 
 enable_testing()
 
-#set(IS_TESTS FALSE)
+set(MY_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
+
+set(TESTS_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/test/include)
+
+set(MY_SRC_DIR ${CMAKE_SOURCE_DIR}/src)
+
+add_subdirectory(src)
+
 if (${IS_TESTS})
     # Building tests
     add_subdirectory(test)
-else()
-    # Building main application
-    set(CMAKE_AUTOUIC ON)
-    set(CMAKE_AUTOMOC ON)
-    set(CMAKE_AUTORCC ON)
-
-    set(CMAKE_CXX_STANDARD 17)
-    set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-    find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Gui Widgets Concurrent)
-    find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Gui Widgets Concurrent)
-
-    set(PROJECT_SOURCES
-	main.cpp
-	mainwindow.h mainwindow.cpp mainwindow.ui
-	converterjson.h converterjson.cpp
-	invertedindex.h invertedindex.cpp
-	searchserver.h searchserver.cpp
-	searchengineexeptions.h
-	listmodel.h listmodel.cpp
-	images.qrc
-    )
-
-    if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-	qt_add_executable(Search_Engine
-	    MANUAL_FINALIZATION
-	    ${PROJECT_SOURCES}
-	)
-    else()
-	add_executable(Search_Engine
-	    ${PROJECT_SOURCES}
-	)
-    endif()
-
-    target_link_libraries(Search_Engine PRIVATE
-	Qt${QT_VERSION_MAJOR}::Core
-	Qt${QT_VERSION_MAJOR}::Gui
-	Qt${QT_VERSION_MAJOR}::Widgets
-	Qt${QT_VERSION_MAJOR}::Concurrent
-    )
-
-    # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
-    # If you are developing for iOS or macOS you should consider setting an
-    # explicit, fixed bundle identifier manually though.
-    if(${QT_VERSION} VERSION_LESS 6.1.0)
-      set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.Search_Engine)
-    endif()
-    set_target_properties(Search_Engine PROPERTIES
-	${BUNDLE_ID_OPTION}
-	MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
-	MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
-	MACOSX_BUNDLE TRUE
-	WIN32_EXECUTABLE TRUE
-    )
-
-    include(GNUInstallDirs)
-    install(TARGETS Search_Engine
-	BUNDLE DESTINATION .
-	LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-	RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-    )
-
-    if(QT_VERSION_MAJOR EQUAL 6)
-	qt_finalize_executable(Search_Engine)
-    endif()
 endif()

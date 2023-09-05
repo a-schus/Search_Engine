@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>../images/HorSplitter.png</file>
+        <file>../images/VerSplitter.png</file>
+        <file>../images/icon.svg</file>
+    </qresource>
+</RCC>

@@ -1,4 +1,4 @@
-#include "converterjson.h"
+#include "../include/converterjson.h"
 
 #include <QFile>
 #include <QFileDialog>
@@ -6,7 +6,7 @@
 #include <QJsonObject>
 #include <QJsonValue>
 
-#include "searchengineexeptions.h"
+#include "../include/searchengineexeptions.h"
 
 
 ConverterJSON::ConverterJSON(QString jsonFileName) : fileName(jsonFileName)

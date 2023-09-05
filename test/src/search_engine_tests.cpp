@@ -1,4 +1,4 @@
-#include "search_engine_tests.h"
+#include "../include/search_engine_tests.h"
 
 //void Search_Engine_Tests::fillDocsForBENCHMARKS()
 //{

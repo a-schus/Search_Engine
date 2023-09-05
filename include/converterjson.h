@@ -42,8 +42,8 @@ private:
 // Пространство имен JSONConsts создано для удобства,
 // если вдруг возникнет необходимость переименовать поля в файлах *.json
 namespace JSONConsts {
-    const QString configFilePath = "config.json";
-    const QString requestsFilePath = "requests.json";
+    const QString configFilePath = "config/config.json";
+    const QString requestsFilePath = "config/requests.json";
     const QString answersFilePath = "answers.json";
 
     const QString config_config = "config";

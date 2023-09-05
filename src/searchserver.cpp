@@ -1,4 +1,4 @@
-#include "searchserver.h"
+#include "../include/searchserver.h"
 
 QVector<QVector<QPair<int, float>>> SearchServer::search(const QVector<QString> &queries_input, size_t numberOfAnswers)
 {
