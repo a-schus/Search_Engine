@@ -116,7 +116,6 @@ MainWindow::MainWindow(QWidget *parent)
         // Инициализируем docs данными из файлов для поиска
         try {
             configData->getFileNames(docNames);
-//            docs = new QVector<QString>();
             docs = configData->getTextDocuments();
         } catch (const DocumentsListNotFound& ex) {
             ex.showError(this);
