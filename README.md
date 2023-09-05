@@ -63,16 +63,16 @@
 
 Затем для сборки основного приложения и модульных тестов ввести команду:
 
-cmake -DIS_TESTS=true -G "MinGW Makefiles" "your_dir"
+** cmake -DIS_TESTS=true -G "MinGW Makefiles" "your_dir" **
 
 (Если вам необходимо собрать только основное приложение, воспользуйтесь командой
- -DIS_TESTS=false -G "MinGW Makefiles" "your_dir")
+ ** cmake -DIS_TESTS=false -G "MinGW Makefiles" "your_dir" **)
 
 где "your_dir" - путь к папке с исходным кодом проекта.
 
 Затем, для генерации исполняемых файлов введите:
 
-mingw32-make
+** mingw32-make **
 
 После этого в папке src\ будет находиться исполняемый файл основного приложения, а в папке test\src\ исполняемый файл модульных тестов. 
 
