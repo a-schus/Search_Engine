@@ -206,6 +206,7 @@ void ConverterJSON::getFileNames(QVector<QString>& fileNames)
                                     "в главном окне приложения");
 
     // Формируем из полученного массива вектор с именами файлов для поиска
+    fileNames.clear();
     for (const auto& val : filesArray){
         fileNames.push_back(val.toString());
     }

@@ -11,29 +11,58 @@
 
 class ConverterJSON
 {
+    // responsesLimit по умолчанию, если данный параметр не указан в config.json
     const int defaultmaxResponses = 5;
+
+    // Максимальное количество выводимых ответов
     int responsesLimit;
 
+    // Имя файла с которым будет работать экземпляр класса ConverterJSON
     QString fileName;
-    QJsonDocument doc; // содержит данные из файла .json
+
+    // Содержимое файла fileName + ".json"
+    QJsonDocument doc;
 
 public:
     ConverterJSON(QString jsonFileName);
     ~ConverterJSON(){}
 
-    // 2 следующие функции возвращабт указатель чтобы избежать лишнего копирования данных
+    /* Методы QVector<QString>* getTextDocuments() и
+     * static QVector<QString>* getTextDocuments(QVector<QString>& docNames) формируют вектор,
+     * содержащий данные из текстовых файлов, по которым будет производиться поиск. Каждый
+     * элемент вектора хранит содержимое очередного файла.
+     *
+     * Метод QVector<QString>* getTextDocuments() берет имена файлов и файла config.json.
+     * Если же требуется передать другие имена, нужно использовать перегруженный метод
+     * static QVector<QString>* getTextDocuments(QVector<QString>& docNames), параметром которого
+     * будет вектор, содержащий имена файлов.
+     *
+     * Оба метода возвращабт указатель чтобы избежать лишнего копирования данных */
     QVector<QString>* getTextDocuments();
-    static QVector<QString>* getTextDocuments(QVector<QString>& docNames); // перегруженная функция, дает возможность загружать имена файлов для поиска не из файла config.json
+    static QVector<QString>* getTextDocuments(QVector<QString>& docNames);
 
+    // Возвращает значение responsesLimit
     int getResponsesLimit();
+
+    // Устанавливает значение responsesLimit
     void setResponsesLimit(int val);
+
+    // Возвращает вектор, содержащий текстовые запросы из файла requests.json
     QVector<QString> getRequests();
+
+    // Записывает результаты поиска в файл
     void putAnswers(QVector<QVector<QPair<int, float>>> answers);
+
+    // В данный метод нужно передать (по ссылке) QVector<QString>& fileNames,
+    // в который будут добавлены имена файлов для поиска, содержащиеся в файле config.json
     void getFileNames(QVector<QString>& fileNames);
 
 
 private:
+    // Формирует ключи запросов для файла answers.json (например request001, request002 и т.д.)
     QString getRequestKey(size_t requestIndex);
+
+    // Возвращает содержимое текстового файла для поиска
     static QString getTextFromFile (const QString& name); // static для использования в статическом методе getTextDocuments(...)
 };
 
