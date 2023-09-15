@@ -117,8 +117,8 @@ void Search_Engine_Tests::TEST_SearchServer_search_Simple()
     SearchServer s(i);
     QVector<QVector<QPair<int, float>>> result = s.search(request, 0);
 
-//    ConverterJSON j(JSONConsts::answersFilePath);
-//    j.putAnswers(result);
+    ConverterJSON j(JSONConsts::answersFilePath);
+    j.putAnswers(result);
 
     QCOMPARE(result, expected);
 }
