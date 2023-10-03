@@ -12,7 +12,7 @@
 ConverterJSON::ConverterJSON(QString jsonFileName) : fileName(jsonFileName)
 {
     // Инициализируем член doc в зависимости от имени файла
-    if (fileName != JSONConsts::answersFilePath){
+    if (fileName == JSONConsts::configFilePath || fileName == JSONConsts::requestsFilePath) {
         if (!QFile::exists(fileName)) {
             // если нужный файл не найден, выбрасываем соответствующее исключение
             if (fileName == JSONConsts::configFilePath)
@@ -181,6 +181,55 @@ void ConverterJSON::putAnswers(QVector<QVector<QPair<int, float>>> answers)
         file.write(doc.toJson());
         file.close();
     }
+}
+
+void ConverterJSON::putAnswers(QVector<QVector<QPair<int, float>>> answers,
+                               QVector<QString> requests,
+                               QString fileName)
+{
+        // формируем QJsonObject answersVal из результатов всех запросов
+        QJsonObject answersVal;
+        for (size_t i = 0; i < answers.size(); ++i) {
+            // формируем QJsonObject request из результата очередного запроса
+            QJsonObject request;
+            if (answers[i].size() > 0) {
+                request.insert(JSONConsts::answers_result, true);
+                if (answers[i].size() > 1) {
+                    // если результатов больше одного
+                    QJsonArray relevances;
+                    for (auto index : qAsConst(answers[i])) {
+                        QJsonObject relevance;
+                        relevance.insert(JSONConsts::answers_docid, index.first);
+                        relevance.insert(JSONConsts::answers_rank, index.second);
+                        relevances.append(relevance);
+                    }
+                    request.insert(JSONConsts::answers_relevance, relevances);
+                } else {
+                    //если результат один
+                    request.insert(JSONConsts::answers_docid, answers[i][0].first);
+                    request.insert(JSONConsts::answers_rank, answers[i][0].second);
+                }
+            } else {
+                // если результатов нет
+                request.insert(JSONConsts::answers_result, false);
+            }
+
+            request.insert("Text", requests[i]);
+            answersVal.insert(getRequestKey(i), request);
+        }
+
+        // Создаем основной объект Json с ключом "answers"
+        QJsonObject mainObject;
+        mainObject.insert(JSONConsts::answers_answers, answersVal);
+        doc.setObject(mainObject);
+
+        // Открываем (или создаем) файл и записываем туда основной объект Json
+        QFile file;
+        file.setFileName(fileName);
+        file.open(QIODevice::WriteOnly | QFile::Text);
+        // ----- проверить создался ли файл, если нет, выбросить и обработать исключение ----- //
+        file.write(doc.toJson());
+        file.close();
 }
 
 QString ConverterJSON::getRequestKey(size_t requestIndex)

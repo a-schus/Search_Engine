@@ -292,3 +292,21 @@ void MainWindow::on_actionAbout_triggered()
     win.exec();
 }
 
+
+void MainWindow::on_saveButton_clicked()
+{
+    QFileDialog fileDialog(this, "Save answers");
+    fileDialog.setFileMode(QFileDialog::AnyFile);
+    fileDialog.setNameFilter(tr("json (*.json)"));
+    fileDialog.setDirectory(currentDir);
+    fileDialog.setAcceptMode(QFileDialog::AcceptSave);
+    QStringList file;
+    if(fileDialog.exec()) {
+        file = fileDialog.selectedFiles();
+        currentDir = fileDialog.directory().absolutePath();
+        ConverterJSON ans;
+        ans.putAnswers(answers, requests, file[0]);
+    }
+
+}
+

@@ -24,7 +24,7 @@ class ConverterJSON
     QJsonDocument doc;
 
 public:
-    ConverterJSON(QString jsonFileName);
+    ConverterJSON(QString jsonFileName = "NoName");
     ~ConverterJSON(){}
 
     /* Методы QVector<QString>* getTextDocuments() и
@@ -52,6 +52,9 @@ public:
 
     // Записывает результаты поиска в файл
     void putAnswers(QVector<QVector<QPair<int, float>>> answers);
+    void putAnswers(QVector<QVector<QPair<int, float>>> answers,
+                    QVector<QString> requests,
+                    QString fileName);
 
     // В данный метод нужно передать (по ссылке) QVector<QString>& fileNames,
     // в который будут добавлены имена файлов для поиска, содержащиеся в файле config.json
