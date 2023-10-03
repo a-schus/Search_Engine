@@ -90,7 +90,7 @@ QVector<QString>* ConverterJSON::getTextDocuments()
     return resultVec;
 }
 
-QVector<QString> *ConverterJSON::getTextDocuments(QVector<QString>& docNames)
+QVector<QString> *ConverterJSON::getTextDocuments(const QVector<QString>& docNames)
 {
     QVector<QString>* resultVec = new QVector<QString>();
         // Загружаем данные из файлов
@@ -134,7 +134,7 @@ QVector<QString> ConverterJSON::getRequests()
     return resultVec;
 }
 
-void ConverterJSON::putAnswers(QVector<QVector<QPair<int, float>>> answers)
+void ConverterJSON::putAnswers(const QVector<QVector<QPair<int, float>>>& answers)
 {
     if (fileName == JSONConsts::answersFilePath) {
 
@@ -183,9 +183,9 @@ void ConverterJSON::putAnswers(QVector<QVector<QPair<int, float>>> answers)
     }
 }
 
-void ConverterJSON::putAnswers(QVector<QVector<QPair<int, float>>> answers,
-                               QVector<QString> requests,
-                               QString fileName)
+void ConverterJSON::putAnswers(const QVector<QVector<QPair<int, float>>>& answers,
+                               const QVector<QString>& requests,
+                               const QString& fileName)
 {
         // формируем QJsonObject answersVal из результатов всех запросов
         QJsonObject answersVal;

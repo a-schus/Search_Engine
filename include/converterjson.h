@@ -39,7 +39,7 @@ public:
      *
      * Оба метода возвращабт указатель чтобы избежать лишнего копирования данных */
     QVector<QString>* getTextDocuments();
-    static QVector<QString>* getTextDocuments(QVector<QString>& docNames);
+    static QVector<QString>* getTextDocuments(const QVector<QString>& docNames);
 
     // Возвращает значение responsesLimit
     int getResponsesLimit();
@@ -51,10 +51,10 @@ public:
     QVector<QString> getRequests();
 
     // Записывает результаты поиска в файл
-    void putAnswers(QVector<QVector<QPair<int, float>>> answers);
-    void putAnswers(QVector<QVector<QPair<int, float>>> answers,
-                    QVector<QString> requests,
-                    QString fileName);
+    void putAnswers(const QVector<QVector<QPair<int, float>>>& answers);
+    void putAnswers(const QVector<QVector<QPair<int, float>>>& answers,
+                    const QVector<QString>& requests,
+                    const QString& fileName);
 
     // В данный метод нужно передать (по ссылке) QVector<QString>& fileNames,
     // в который будут добавлены имена файлов для поиска, содержащиеся в файле config.json
